@@ -76,3 +76,32 @@ if uploaded_file is not None:
 
         st.title('Most commmon words')
         st.pyplot(fig)
+
+        # Emoji Analysis
+        emoji_df = helper.emoji_helper(selected_user,df)
+        st.title("Emoji Analysis")
+
+        col1,col2 = st.columns(2)
+
+        with col1:
+            st.dataframe(emoji_df)
+        with col2:
+            fig,ax = plt.subplots()
+            ax.pie(emoji_df[1].head(),labels=emoji_df[0].head(),autopct="%0.2f")
+            st.pyplot(fig)
+
+        # Monthly Timeline
+        st.title("Monthly Timeline")
+        timeline = helper.monthly_timeline(selected_user,df)
+        fig,ax = plt.subplots()
+        ax.plot(timeline['time'], timeline['message'],color='green')
+        plt.xticks(rotation='vertical')
+        st.pyplot(fig)
+
+        # daily timeline
+        st.title("Daily Timeline")
+        daily_timeline = helper.daily_timeline(selected_user, df)
+        fig, ax = plt.subplots()
+        ax.plot(daily_timeline['only_date'], daily_timeline['message'], color='black')
+        plt.xticks(rotation='vertical')
+        st.pyplot(fig)

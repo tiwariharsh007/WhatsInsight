@@ -1279,3 +1279,5 @@ else if(
 (int
 0;
 main()
+std;
+for(int
