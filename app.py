@@ -3,6 +3,7 @@ import pandas as pd
 import preprocessor
 import helper
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 st.sidebar.title("WhatsApp Chat Analyzer")
 st.sidebar.subheader("Upload your WhatsApp chat file")
@@ -125,3 +126,9 @@ if uploaded_file is not None:
             ax.bar(busy_month.index, busy_month.values,color='orange')
             plt.xticks(rotation='vertical')
             st.pyplot(fig)
+
+        st.title("Weekly Activity Map")
+        user_heatmap = helper.activity_heatmap(selected_user,df)
+        fig,ax = plt.subplots()
+        ax = sns.heatmap(user_heatmap)
+        st.pyplot(fig)
