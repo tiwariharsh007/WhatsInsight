@@ -19,8 +19,9 @@ if uploaded_file is not None:
     data = bytes_data.decode("utf-8")
     df = preprocessor.preprocess(data)
 
-    st.subheader("📄 Raw Chat Data")
-    st.dataframe(df)
+    # Use expander for raw chat data
+    with st.expander("📄 View Raw Chat Data"):
+        st.dataframe(df)
 
     # Unique users list
     user_list = df['user'].unique().tolist()
@@ -140,5 +141,4 @@ if uploaded_file is not None:
         sentiment_df = helper.sentiment_analysis(selected_user, df)
 
         st.dataframe(
-            sentiment_df.style.background_gradient(cmap='RdYlGn', subset=['avg_sentiment']).format({'avg_sentiment': '{:.2f}'})
-        )
+            sentiment_df.style.background_gradient(cmap='RdYlGn', subset=['avg_sentiment']).format({'avg_sentiment': '{:.2f}'}))
