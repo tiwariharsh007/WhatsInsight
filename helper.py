@@ -4,6 +4,7 @@ from collections import Counter
 from wordcloud import WordCloud
 import emoji
 import seaborn as sns
+from textblob import TextBlob
 
 extract = URLExtract()
 
@@ -143,3 +144,27 @@ def activity_heatmap(selected_user,df):
     user_heatmap = df.pivot_table(index='day_name', columns='period', values='message', aggfunc='count').fillna(0)
 
     return user_heatmap
+
+def get_sentiment(message):
+    return TextBlob(message).sentiment.polarity
+
+def sentiment_analysis(selected_user, df):
+    # Filter for selected_user if it's not 'Overall'
+    if selected_user != 'Overall':
+        df = df[df['user'] == selected_user]
+    
+    # Calculate sentiment scores for each message
+    df['sentiment'] = df['message'].apply(get_sentiment)
+
+    # Calculate average sentiment for the selected user (or all if 'Overall')
+    user_sentiment_df = df.groupby('user')['sentiment'].mean().reset_index()
+
+    # Rename columns for clarity
+    user_sentiment_df.columns = ['User', 'avg_sentiment']
+
+    # Label overall sentiment based on avg_sentiment
+    user_sentiment_df['overall_sentiment'] = user_sentiment_df['avg_sentiment'].apply(
+        lambda x: "Positive 😊" if x >= 0.05 else "Negative 😠" if x <= -0.05 else "Neutral 😐"
+    )
+    
+    return user_sentiment_df
