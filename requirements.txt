@@ -6,3 +6,4 @@ wordcloud
 textblob
 urlextract
 emoji
+networkx 
