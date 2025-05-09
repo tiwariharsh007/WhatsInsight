@@ -1,1 +1,2 @@
 setup project structure and initial files
+add basic Flask app to run chat analyzer
