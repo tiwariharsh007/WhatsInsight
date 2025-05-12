@@ -1,3 +1,4 @@
 setup project structure and initial files
 add basic Flask app to run chat analyzer
 implement preprocessing pipeline for WhatsApp chat text
+add stop words list and integration
