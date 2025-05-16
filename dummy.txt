@@ -7,3 +7,4 @@ test preprocessing with sample chat file
 implement word frequency counter for messages
 add sentiment analysis using TextBlob
 create helper functions for user-level stats
+optimize performance in preprocessing script
