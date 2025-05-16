@@ -4,3 +4,4 @@ implement preprocessing pipeline for WhatsApp chat text
 add stop words list and integration
 improve regex cleaning for timestamps and emojis
 test preprocessing with sample chat file
+implement word frequency counter for messages
