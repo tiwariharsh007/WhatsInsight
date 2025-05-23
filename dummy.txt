@@ -15,3 +15,4 @@ fix minor bug in preprocessing related to empty lines
 add per-user message distribution chart
 implement active hours heatmap
 improve visualization color schemes
+add functionality to detect most replied messages
