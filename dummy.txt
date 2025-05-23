@@ -12,3 +12,4 @@ update requirements.txt with missing libraries
 implement word cloud visualization
 add matplotlib support for chat trends
 fix minor bug in preprocessing related to empty lines
+add per-user message distribution chart
