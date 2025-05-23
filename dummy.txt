@@ -17,3 +17,4 @@ implement active hours heatmap
 improve visualization color schemes
 add functionality to detect most replied messages
 update README with usage instructions
+clean unused imports and improve logging
