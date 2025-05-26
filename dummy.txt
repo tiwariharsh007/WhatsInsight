@@ -18,3 +18,4 @@ improve visualization color schemes
 add functionality to detect most replied messages
 update README with usage instructions
 clean unused imports and improve logging
+fix bug in word cloud generation with non-English text
