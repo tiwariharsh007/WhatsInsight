@@ -24,3 +24,4 @@ add emoji usage statistics
 implement longest conversation streak detection
 refine sentiment analysis scoring
 finalize README with screenshots and examples
+prepare stable release version
