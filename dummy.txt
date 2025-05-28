@@ -21,3 +21,4 @@ clean unused imports and improve logging
 fix bug in word cloud generation with non-English text
 add extra stop words to stop_words.txt
 add emoji usage statistics
+implement longest conversation streak detection
